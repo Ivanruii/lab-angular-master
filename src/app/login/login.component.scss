@@ -1,0 +1,21 @@
+main {
+  display: grid;
+  place-content: center;
+  margin: 6em;
+}
+
+mat-card {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: fit-content;
+
+  mat-card-title {
+    color: white;
+  }
+
+  form {
+    display: flex;
+    flex-direction: column;
+  }
+}

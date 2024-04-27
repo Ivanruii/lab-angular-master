@@ -1,0 +1,48 @@
+<mat-toolbar>
+  <div class="logo-title">
+    <img src="assets/angular_logo.png" alt="" width="38" />
+    <span>Hello Angular!</span>
+  </div>
+  @if (authService.isLogged()) {
+  <nav>
+    <ul class="nav-items">
+      <li>
+        <a routerLinkActive="selected" routerLink="/home">Home</a>
+      </li>
+      <li>
+        <a routerLinkActive="selected" routerLink="/about">About</a>
+      </li>
+      <li>
+        <a routerLinkActive="selected" routerLink="/galery">Galeria</a>
+      </li>
+      <li>
+        <a routerLinkActive="selected" routerLink="/dashboard">Dashboard</a>
+      </li>
+      <li>
+        <a routerLinkActive="selected" routerLink="/crud">CRUD</a>
+      </li>
+      <li>
+        <a routerLinkActive="selected" routerLink="/profile">Profile</a>
+      </li>
+    </ul>
+    <div class="nav-actions">
+      <span>{{ getUserName() }}</span>
+      <button mat-flat-button color="primary" (click)="onLogout()">
+        Logout
+      </button>
+    </div>
+  </nav>
+  } @else {
+  <ul class="nav-items">
+    <li>
+      <a routerLinkActive="selected" routerLink="/home">Home</a>
+    </li>
+    <li>
+      <a routerLinkActive="selected" routerLink="/login">Login</a>
+    </li>
+    <li>
+      <a routerLinkActive="selected" routerLink="/about">About</a>
+    </li>
+  </ul>
+  }
+</mat-toolbar>

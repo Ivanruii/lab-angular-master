@@ -1,0 +1,57 @@
+<div class="gallery-container">
+  <div class="controls">
+    <button mat-button color="primary" (click)="previousPhoto()">
+      <mat-icon>arrow_back</mat-icon>
+      Previous
+    </button>
+    <button mat-button color="primary" (click)="nextPhoto()">
+      <mat-icon>arrow_forward</mat-icon>
+      Forward
+    </button>
+    <button mat-button color="primary" (click)="increaseSize()">
+      <mat-icon>zoom_in</mat-icon>
+      Increase
+    </button>
+    <button mat-button color="primary" (click)="decreaseSize()">
+      <mat-icon>zoom_out</mat-icon>
+      Decrease
+    </button>
+    <button mat-button color="primary" (click)="playSlideshow()">
+      <mat-icon>play_arrow</mat-icon>
+      Play
+    </button>
+    <button mat-button color="primary" (click)="stopSlideshow()">
+      <mat-icon>stop_circle</mat-icon>
+      Stop
+    </button>
+  </div>
+
+  <div class="selected-image" [style.width.%]="currentSize">
+    <img
+      [rotate]="45"
+      [step]="15"
+      src="{{ selectedPhoto.src }}"
+      alt="{{ selectedPhoto.title }}"
+    />
+  </div>
+
+  <div class="image-collection">
+    <button mat-button color="primary" (click)="previousPage()">
+      <mat-icon>arrow_back</mat-icon>
+      Previous
+    </button>
+    <div *ngFor="let photo of getDisplayedPhotos()">
+      <img
+        src="{{ photo.src }}"
+        alt="{{ photo.title }}"
+        [class.selected]="photo === selectedPhoto"
+        [class.unselected]="photo !== selectedPhoto"
+        (click)="selectPhoto(photo)"
+      />
+    </div>
+    <button mat-button color="primary" (click)="nextPage()">
+      <mat-icon>arrow_forward</mat-icon>
+      Forward
+    </button>
+  </div>
+</div>
